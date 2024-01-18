@@ -125,6 +125,7 @@ document.getElementById('submitButton').addEventListener('click', function() {
     // Dapatkan orderId dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('orderId');
+    const Nomor = urlParams.get('Nomor');
 
     if (orderId) {
         // Jika orderId ada, simpan pesanan di bawah orderId tersebut
@@ -137,7 +138,8 @@ document.getElementById('submitButton').addEventListener('click', function() {
             jumlahPorsi: jumlahPorsi,
             catatan: catatan,
             status: status,
-            selectedItemKey: selectedItemKey
+            selectedItemKey: selectedItemKey,
+            Nomor: Nomor
         }).then(() => {
             document.getElementById('porsi').value = '1';
             document.getElementById('catatan').value = '';
@@ -163,9 +165,10 @@ document.getElementById('submitButton2').addEventListener('click', function() {
 
     const selectedItemKey2 = document.getElementById('menuDrink').value;
 
-    // Dapatkan orderId dari URL
+    // Get the orderId and Nomor from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('orderId');
+    const Nomor = urlParams.get('Nomor');
 
     const orderRef = ref(database, `orders/${orderId}/order_item`);
     const newOrderRef = push(orderRef);
@@ -176,21 +179,20 @@ document.getElementById('submitButton2').addEventListener('click', function() {
         jumlahPorsi2: jumlahPorsi2,
         catatan2: catatan2,
         status2: status2,
-        selectedItemKey2: selectedItemKey2
+        selectedItemKey2: selectedItemKey2,
+        Nomor: Nomor // Include Nomor in the order_item data
     }).then(() => {
-
         document.getElementById('porsi2').value = '1';
         document.getElementById('catatan2').value = '';
         document.getElementById('menuDrink').value = 'Menu Pesanan';
         document.getElementById('status2').value = '';
 
-
         $('#exampleModalDrink').modal('hide');
-
     }).catch((error) => {
         console.error("Error saving order: ", error);
     });
 });
+
 
 //submit food//
 document.getElementById('submitButton3').addEventListener('click', function() {
@@ -204,6 +206,7 @@ document.getElementById('submitButton3').addEventListener('click', function() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('orderId');
+    const Nomor = urlParams.get('Nomor');
 
     const orderRef = ref(database, `orders/${orderId}/order_item`);
     const newOrderRef = push(orderRef);
@@ -214,7 +217,8 @@ document.getElementById('submitButton3').addEventListener('click', function() {
         jumlahPorsi3: jumlahPorsi3,
         catatan3: catatan3,
         status3: status3,
-        selectedItemKey3: selectedItemKey3
+        selectedItemKey3: selectedItemKey3,
+        Nomor: Nomor
     }).then(() => {
 
         document.getElementById('porsi3').value = '1';

@@ -60,6 +60,7 @@ const getData = () => {
             var row = `<tr data-key="${orderItemId}" data-name="${orderItemData.itemName}" data-porsi="${orderItemData.jumlahPorsi}" data-catatan="${orderItemData.catatan}">
 
             <td>${orderItemData.itemName}</td>
+            <td>${orderItemData.Nomor}</td>
             <td>${orderItemData.jumlahPorsi}</td>
             <td>${orderItemData.catatan}</td>
             <td>

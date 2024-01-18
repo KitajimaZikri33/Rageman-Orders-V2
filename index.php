@@ -27,6 +27,10 @@
     text-align: center;
 }
 
+#dataTblBody td:nth-child(6) {
+    text-align: center;
+}
+
 #dataTbl th:first-child {
     text-align: center;
 }
@@ -34,6 +38,10 @@
 #dataTbl th:nth-child(5) {
     text-align: center;
 }
+#dataTbl th:nth-child(6) {
+    text-align: center;
+}
+
 
 .footer {
     background-color: #f8f9fa;

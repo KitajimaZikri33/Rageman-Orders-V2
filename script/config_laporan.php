@@ -51,7 +51,7 @@ function viewOrderItems(key, Name, Nomor) {
     let encodedName = encodeURIComponent(Name);
     let encodedNomor = encodeURIComponent(Nomor);
 
-    const url = `order_item.php?orderId=${key}&Name=${encodedName}&Nomor=${encodedNomor}`;
+    const url = `admin/order_item.php?orderId=${key}&Name=${encodedName}&Nomor=${encodedNomor}`;
 
     window.location.href = url;
 }
@@ -63,44 +63,71 @@ function viewOrderItems(key, Name, Nomor) {
 
 function getData() {
     const dataTable = $('#dataTblBody');
-
     dataTable.empty();
+
     const dbRef = ref(database, 'orders/');
 
-    onValue(dbRef, (snapshot) => {
+    onValue(dbRef, async (snapshot) => {
         $('#dataTblBody td').remove();
         let rowNum = 1;
+
+        const promises = [];
 
         snapshot.forEach((childSnapshot) => {
             const childKey = childSnapshot.key;
             const childData = childSnapshot.val();
 
-            // Update the row creation part in getData function
+            const orderItemRef = ref(database, `orders/${childKey}/order_item`);
+
+            // Use async/await to handle asynchronous operation
+            const promise = get(orderItemRef).then((orderItemSnapshot) => {
+                // Use val() to get the data and calculate length
+                const orderItemData = orderItemSnapshot.val();
+                const orderItemCount = orderItemData ? Object.keys(orderItemData).length : 0;
+
+                return {
+                    childKey,
+                    childData,
+                    orderItemCount
+                };
+            });
+
+            promises.push(promise);
+        });
+
+        // Wait for all promises to resolve using Promise.all
+        const results = await Promise.all(promises);
+
+        results.forEach(({ childKey, childData, orderItemCount }) => {
+            const badgeClass = childData.status === 'Ongoing' ? 'bg-dark' : 'bg-success';
             var row = `<tr data-key="${childKey}" data-name="${childData.Name}" data-nomor="${childData.Nomor}" data-time="${childData.DateTime}">
                     <td>${rowNum}</td>
                     <td>${childData.Name}</td>
                     <td>${childData.Nomor}</td>
                     <td>${childData.DateTime}</td>
-                    <td><span class="badge bg-success">${childData.status}</span></td>
+                    <td>${orderItemCount}</td>
+                    <td><span class="badge ${badgeClass}">${childData.status}</span></td>
                     <td class="d-flex">
                         <button class="btn btn-primary me-1" onclick="viewOrderItems('${childKey}', '${childData.Name}', '${childData.Nomor}')">
                             <i class="bi bi-eye"></i>
                         </button>
-                        <button class="btn btn-warning me-1" onclick="editData(this)" disabled>
+                        <button class="btn btn-warning me-1" onclick="editData('${childKey}', '${childData.Name}', '${childData.Nomor}')">
                             <i class="bi bi-pencil-square"></i>
                         </button>
-                        <button class="btn btn-danger me-1" onclick="deleteData(this)">
+                        <button class="btn btn-danger me-1" onclick="deleteData('${childKey}')">
                             <i class="bi bi-trash3"></i>
                         </button>
                     </td>
                     </tr>`;
 
+            // Append the row to the table
             $(row).appendTo('#dataTblBody');
 
             rowNum++;
         });
     });
 }
+
 
 // Function to open edit modal
 const editData = (button) => {

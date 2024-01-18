@@ -48,6 +48,19 @@
     animation: slide-up 0.3s ease-in-out;
 }
 
+.footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
 @keyframes slide-up {
     from {
         transform: translateY(100%);
@@ -182,15 +195,24 @@ table.rounded {
                     </a>
                 </li>
             </ul>
-            <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
         </aside>
-        <div class="main p-3">
-            <div class="text-center">
+        <div class="main">
+            <nav class="navbar navbar-expand-lg"
+                style="background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <div class="container-fluid">
+                    <span class="" style="color: #0e2238; font-weight: bold;">RAGEMAN RESTO & COFFEE</span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a href="#" class="sidebar-link" style="color: #0e2238;">
+                        <i class="lni lni-exit"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="text-center p-3">
 
 
                 <?php
@@ -205,10 +227,11 @@ table.rounded {
                 elseif (isset($_GET["x"]) && $_GET["x"]=='laporan') {include "admin/laporan.php";}
                 ?>
 
+
                 <div class="container-lg-1">
                     <h5 class="card-title text-start">
                         <a class="btn btn-transparent-dark" href="index.php?x=order" role="button">
-                        <i class="bi bi-caret-left-fill"></i>
+                            <i class="bi bi-caret-left-fill"></i>
                         </a>
                     </h5>
                     <div class="row g-2 mb-2 mt-2">
@@ -234,8 +257,7 @@ table.rounded {
                                 <div class="card-body">
 
                                     <div class="col-md table-responsive table-container">
-                                        <table class="table table-striped align-middle rounded"
-                                            id="dataTbl">
+                                        <table class="table table-striped align-middle rounded" id="dataTbl">
                                             <thead>
                                                 <tr>
                                                     <th scope="col" class="col-md-1">No</th>
@@ -283,8 +305,7 @@ table.rounded {
                                                     <div class="modal-body">
 
                                                         <div class="col-md table-responsive table-container">
-                                                            <table class="table align-middle rounded"
-                                                                id="dataTb2">
+                                                            <table class="table align-middle rounded" id="dataTb2">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Menu</th>
@@ -333,7 +354,7 @@ table.rounded {
                                                             </table>
                                                         </div>
 
-                                                        <h4 style="color: salmon;">Apakah Anda Yakin Ingin Melakukan
+                                                        <h4 style="color: red;">Apakah Anda Yakin Ingin Melakukan
                                                             Pembayaran?
                                                         </h4>
 
@@ -356,7 +377,7 @@ table.rounded {
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCoffee" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-info text-light">
                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item
@@ -383,7 +404,7 @@ table.rounded {
                                                                 <div class="form-floating mb-3">
                                                                     <input type="number" class="form-control" id="porsi"
                                                                         placeholder="name@example.com" value="1">
-                                                                    <label for="floatingInput">Jumlah Porsi</label>
+                                                                    <label for="floatingInput">Jumlah</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md">
@@ -411,7 +432,7 @@ table.rounded {
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalDrink" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-info text-light">
                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item
@@ -439,7 +460,7 @@ table.rounded {
                                                                     <input type="number" class="form-control"
                                                                         id="porsi2" placeholder="name@example.com"
                                                                         value="1">
-                                                                    <label for="floatingInput">Jumlah Porsi</label>
+                                                                    <label for="floatingInput">Jumlah</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md">
@@ -453,6 +474,7 @@ table.rounded {
                                                             <span id="itemName2" hidden></span>
                                                             <span type="number" id="itemPrice2" hidden></span>
                                                             <input type="text" id="status2" hidden></input>
+                                                            
 
                                                         </div>
                                                     </div>
@@ -467,7 +489,7 @@ table.rounded {
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalFood" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-info text-light">
                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item
@@ -495,7 +517,7 @@ table.rounded {
                                                                     <input type="number" class="form-control"
                                                                         id="porsi3" placeholder="name@example.com"
                                                                         value="1">
-                                                                    <label for="floatingInput">Jumlah Porsi</label>
+                                                                    <label for="floatingInput">Jumlah</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md">
@@ -580,6 +602,11 @@ table.rounded {
         </div>
     </div>
 
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2023 RagemanOrders. | KP60 Universitas Kuningan</p>
+        </div>
+    </footer>
 
 
     <script src="script.js"></script>

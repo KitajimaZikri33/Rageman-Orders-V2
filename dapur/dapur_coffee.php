@@ -13,6 +13,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Meja</th>
                                         <th scope="col">Porsi</th>
                                         <th scope="col">Catatan</th>
                                         <th scope="col">Status</th>

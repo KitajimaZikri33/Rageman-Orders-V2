@@ -111,6 +111,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Meja</th>
                             <th scope="col">Waktu Order</th>
+                            <th scope="col">Qty</th>
                             <th scope="col">Status</th>
                             <th scope="col" class="col-md-2">Action</th>
                         </tr>

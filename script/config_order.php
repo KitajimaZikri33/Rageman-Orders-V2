@@ -78,7 +78,7 @@ function getData() {
                     <td>${childData.Name}</td>
                     <td>${childData.Nomor}</td>
                     <td>${childData.DateTime}</td>
-                    <td>${childData.status}</td>
+                    <td><span class="badge bg-dark">${childData.status}</span></td>
                     <td class="d-flex">
                         <button class="btn btn-primary me-1" onclick="viewOrderItems('${childKey}', '${childData.Name}', '${childData.Nomor}')">
                             <i class="bi bi-eye"></i>
@@ -107,13 +107,11 @@ const editData = (button) => {
     const name = row.dataset.name;
     const nomor = row.dataset.nomor;
     const time = row.dataset.time;
-    const status = row.dataset.status;
 
     $('#editKey').val(key);
     $('#editName').val(name);
     $('#editNomor').val(nomor);
     $('#datetimeHidden').val(time);
-    $('#statusHidden').val(status);
 
     $('#editModal').modal('show');
 };
@@ -125,7 +123,7 @@ const saveEdit = () => {
     const updatedName = $('#editName').val();
     const updatedNomor = $('#editNomor').val();
     const updateTime = $('#datetimeHidden').val();
-    const updateStatus = $('#statusHidden').val();
+    const updateStatus = $('#statusHide').val();
 
     const dbRef = ref(database, 'orders/' + key);
 

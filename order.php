@@ -4,7 +4,7 @@
         <div class="card">
 
             <div class="card-body">
-                
+
 
                 <!-- Modal untuk Edit Data -->
                 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
@@ -28,7 +28,7 @@
                                         <label for="editNomor" class="form-label">Nomor</label>
                                     </div>
                                     <input type="hidden" id="datetimeHidden" name="datetimeHidden">
-                                    <input type="hidden" id="statusHidden" name="statusHidden">
+                                    <input type="text" id="statusHide" hidden value="Ongoing"></input>
 
 
                                 </form>
@@ -84,7 +84,7 @@
                         <label for="floatingInput">Nomor Meja</label>
                     </div>
                 </div>
-                <input type="text" id="status" hidden></input>
+                <input type="text" id="status" hidden value="Ongoing"></input>
                 <div class="modal-footer">
                     <button type="button" id="submitButton" class="btn btn-success w-100">Save</button>
                 </div>
