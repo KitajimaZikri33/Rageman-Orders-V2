@@ -41,6 +41,7 @@ let signinButton = document.getElementById("signin-button");
 let signupButton = document.getElementById("signup-button");
 
 signupButton.addEventListener("click", (e) => {
+    e.preventDefault();
     let name = document.getElementById("name").value;
     let nohp = document.getElementById("nohp").value;
     let emailSignup = document.getElementById("email_signup").value;
@@ -82,6 +83,7 @@ signupButton.addEventListener("click", (e) => {
 });
 
 signinButton.addEventListener("click", (e) => {
+    e.preventDefault();
     let emailSignin = document.getElementById("email_signin").value;
     let passwordSignin = document.getElementById("psw_signin").value;
 
