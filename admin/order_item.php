@@ -35,7 +35,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;
+    z-index_admin: 9999;
 }
 
 /* Tambahkan ini pada file CSS Anda atau dalam tag style di head HTML */
@@ -120,14 +120,14 @@ table.rounded {
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="../index.php?x=dashboard"
+                    <a href="../index_admin.php?x=dashboard"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dashboard') ? 'active link-info' : 'link-light' ; ?>">
                         <i class="lni lni-user"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../index.php?x=order"
+                    <a href="../index_admin.php?x=order"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'order') ? 'active link-info' : 'link-light' ; ?>">
                         <i class="lni lni-agenda"></i>
                         <span>Order</span>
@@ -141,17 +141,17 @@ table.rounded {
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="../index.php?x=coffee"
+                            <a href="../index_admin.php?x=coffee"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'coffee') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-cup-hot"></i>Coffee</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../index.php?x=drink"
+                            <a href="../index_admin.php?x=drink"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'drink') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-cup-straw"></i>Minuman</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../index.php?x=food"
+                            <a href="../index_admin.php?x=food"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'food') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-egg-fried"></i>Makanan</a>
                         </li>
@@ -165,24 +165,24 @@ table.rounded {
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="../index.php?x=dapur_coffee"
+                            <a href="../index_admin.php?x=dapur_coffee"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_coffee') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-cup-hot"></i>Coffee</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../index.php?x=dapur_drink"
+                            <a href="../index_admin.php?x=dapur_drink"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_drink') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-cup-straw"></i>Minuman</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../index.php?x=dapur_food"
+                            <a href="../index_admin.php?x=dapur_food"
                                 class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_food') ? 'active link-info' : 'link-light' ; ?>"><i
                                     class="bi bi-egg-fried"></i>Makanan</a>
                         </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../index.php?x=laporan"
+                    <a href="../index_admin.php?x=laporan"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'laporan') ? 'active link-info' : 'link-light' ; ?>">
                         <i class="lni lni-popup"></i>
                         <span>Laporan</span>
@@ -206,7 +206,7 @@ table.rounded {
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <a href="#" class="sidebar-link" style="color: #0e2238;">
+                    <a href="#" class="sidebar-link" style="color: #0e2238;" id="logout">
                         <i class="lni lni-exit"></i>
                         <span>Logout</span>
                     </a>
@@ -230,7 +230,7 @@ table.rounded {
 
                 <div class="container-lg-1">
                     <h5 class="card-title text-start">
-                        <a class="btn btn-transparent-dark" href="../index.php?x=laporan" role="button">
+                        <a class="btn btn-transparent-dark" href="../index_admin.php?x=laporan" role="button">
                             <i class="bi bi-caret-left-fill"></i>
                         </a>
                     </h5>
@@ -607,6 +607,55 @@ table.rounded {
             <p>&copy; 2023 RagemanOrders. | KP60 Universitas Kuningan</p>
         </div>
     </footer>
+
+    <script type="module">
+    import {
+        getAuth,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCl187TfdE2U96gwo_Wg7HToa0YmRV5wWk",
+        authDomain: "rageman-orders.firebaseapp.com",
+        databaseURL: "https://rageman-orders-default-rtdb.firebaseio.com",
+        projectId: "rageman-orders",
+        storageBucket: "rageman-orders.appspot.com",
+        messagingSenderId: "998695493444",
+        appId: "1:998695493444:web:a10201af4430f73e414111"
+    };
+
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    let logoutButton = document.getElementById("logout");
+    console.log(logoutButton);
+
+    logoutButton.addEventListener("click", (e) => {
+        const auth = getAuth(app);
+        signOut(auth)
+            .then(() => {
+
+                Swal.fire({
+                    title: "Apakah kamu yakin?",
+                    text: "Apakah kamu yakin ingin keluar dari halaman?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.href = "../index.php?#";
+                    }
+                });
+
+            })
+            .catch((error) => {});
+    });
+    </script>
 
 
     <script src="../script.js"></script>

@@ -1,239 +1,117 @@
-<!doctype html>
+<!-- source https://www.youtube.com/watch?v=piG91X4sV2U&t=1110s -->
+<!-- https://www.youtube.com/watch?v=gcmGNOj37E8&list=PLnHVLqBXnoWXttdeU2M_53HAWGs3takKN&index=8 -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rageman Order Menu</title>
-    <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style2.css" />
+    <title>Rageman Order Menu</title>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<style>
-#dataTblBody td:first-child {
-    text-align: center;
-    font-weight: bold;
-}
-
-#dataTblBody td:last-child {
-    text-align: center;
-}
-
-#dataTblBody td:nth-child(5) {
-    text-align: center;
-}
-
-#dataTblBody td:nth-child(6) {
-    text-align: center;
-}
-
-#dataTbl th:first-child {
-    text-align: center;
-}
-
-#dataTbl th:nth-child(5) {
-    text-align: center;
-}
-#dataTbl th:nth-child(6) {
-    text-align: center;
-}
-
-
-.footer {
-    background-color: #f8f9fa;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-
-.footer p {
-    margin: 0;
-}
-
-
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-th,
-td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.table-container {
-    overflow-x: auto;
-    max-width: 100%;
-}
-
-table.rounded {
-    border-radius: 10px;
-    overflow: hidden;
-}
-</style>
-
 <body>
-    <div class="wrapper">
-
-
-        <aside id="sidebar">
-            <div class="d-flex">
-                <button class="toggle-btn" type="button">
-                    <i class="lni lni-grid-alt"></i>
-                </button>
-                <div class="sidebar-logo">
-                    <a href="#">RagemanOrders</a>
-                </div>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" placeholder="Email" id="email_signin" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="psw_signin" autocomplete="new-password" />
+                    </div>
+                    <input type="submit" value="Login" id="signin-button" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Name" id="name" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" placeholder="No HP" id="nohp" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-list"></i>
+                        <select class="form-select " id="kategori" aria-label="Default select example" style="font-size: 1.1rem; background-color: transparent; border: none; font-weight: bold;">
+                            <option selected>Kategori</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Kasir">Kasir</option>
+                            <option value="Dapur">Dapur</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="email_signup" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="psw_signup" autocomplete="new-password" />
+                    </div>
+                    <input type="submit" class="btn" id="signup-button" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
-            <ul class="sidebar-nav">
-                <li class="sidebar-item">
-                    <a href="index.php?x=dashboard"
-                        class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dashboard') ? 'active link-info' : 'link-light' ; ?>">
-                        <i class="lni lni-user"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="index.php?x=order"
-                        class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'order') ? 'active link-info' : 'link-light' ; ?>">
-                        <i class="lni lni-agenda"></i>
-                        <span>Order</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="bi bi-menu-button-wide"></i>
-                        <span>Master Menu</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="index.php?x=coffee"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'coffee') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-hot"></i>Coffee</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index.php?x=drink"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'drink') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-straw"></i>Minuman</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index.php?x=food"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'food') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-egg-fried"></i>Makanan</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <i class="bi bi-fire"></i>
-                        <span>Dapur</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="index.php?x=dapur_coffee"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_coffee') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-hot"></i>Coffee</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index.php?x=dapur_drink"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_drink') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-straw"></i>Minuman</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index.php?x=dapur_food"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_food') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-egg-fried"></i>Makanan</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="index.php?x=laporan"
-                        class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'laporan') ? 'active link-info' : 'link-light' ; ?>">
-                        <i class="bi bi-newspaper"></i>
-                        <span>Laporan</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-cog"></i>
-                        <span>Setting</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-        <div class="main">
-            <nav class="navbar navbar-expand-lg"
-                style="background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                <div class="container-fluid">
-                    <span class="" style="color: #0e2238; font-weight: bold;">RAGEMAN RESTO & COFFEE</span>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        </div>
 
-                    <a href="#" class="sidebar-link" style="color: #0e2238;">
-                        <i class="lni lni-exit"></i>
-                        <span>Logout</span>
-                    </a>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Belum Punya Akun ?</h3>
+                    <p>Jika belum mempunyai akun, silahkan menuju halaman Sign Up</p>
+                    <button class="btn transparent" id="sign-up-btn">Sign up</button>
                 </div>
-            </nav>
-            <div class="text-center p-3">
-
-
-                <?php
-                if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='order') {include "order.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='coffee') {include "admin/input_coffee.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='drink') {include "admin/input_drink.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='food') {include "admin/input_food.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_coffee') {include "dapur/dapur_coffee.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_drink') {include "dapur/dapur_drink.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_food') {include "dapur/dapur.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='laporan') {include "admin/laporan.php";}
-                ?>
+                <img src="img/log.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Sudah Punya Akun ?</h3>
+                    <p>Jika suda punya akun, silahkan mmenuju halaman Sign In</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="img/register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container text-center">
-            <p>&copy; 2023 RagemanOrders. | KP60 Universitas Kuningan</p>
-        </div>
-    </footer>
-
-
-
-    <script src="script.js"></script>
-    <script src="bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <!-- Include jQuery Mask Plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
+    <?php include 'myscript.php' ?>
+    <script src="app.js"></script>
 </body>
 
 </html>

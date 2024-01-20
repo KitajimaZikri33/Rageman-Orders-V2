@@ -35,7 +35,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index_admin: 9999;
+    z-index_kasir: 9999;
 }
 
 /* Tambahkan ini pada file CSS Anda atau dalam tag style di head HTML */
@@ -120,74 +120,20 @@ table.rounded {
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index_admin.php?x=dashboard"
+                    <a href="index_kasir.php?x=dashboard"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dashboard') ? 'active link-info' : 'link-light' ; ?>">
                         <i class="lni lni-user"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="index_admin.php?x=order"
+                    <a href="index_kasir.php?x=order"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'order') ? 'active link-info' : 'link-light' ; ?>">
                         <i class="lni lni-agenda"></i>
                         <span>Order</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Master Menu</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=coffee"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'coffee') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-hot"></i>Coffee</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=drink"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'drink') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-straw"></i>Minuman</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=food"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'food') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-egg-fried"></i>Makanan</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <i class="lni lni-layout"></i>
-                        <span>Dapur</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=dapur_coffee"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_coffee') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-hot"></i>Coffee</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=dapur_drink"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_drink') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-cup-straw"></i>Minuman</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index_admin.php?x=dapur_food"
-                                class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'dapur_food') ? 'active link-info' : 'link-light' ; ?>"><i
-                                    class="bi bi-egg-fried"></i>Makanan</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="index_admin.php?x=laporan"
-                        class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'laporan') ? 'active link-info' : 'link-light' ; ?>">
-                        <i class="lni lni-popup"></i>
-                        <span>Laporan</span>
-                    </a>
-                </li>
+
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-cog"></i>
@@ -218,19 +164,12 @@ table.rounded {
                 <?php
                 if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard.php";}
                 elseif (isset($_GET["x"]) && $_GET["x"]=='order') {include "order.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='coffee') {include "admin/input_coffee.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='drink') {include "admin/input_drink.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='food') {include "admin/input_food.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_coffee') {include "dapur/dapur_coffee.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_drink') {include "dapur/dapur_drink.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_food') {include "dapur/dapur.php";}
-                elseif (isset($_GET["x"]) && $_GET["x"]=='laporan') {include "admin/laporan.php";}
                 ?>
 
 
                 <div class="container-lg-1">
                     <h5 class="card-title text-start">
-                        <a class="btn btn-transparent-dark" href="index_admin.php?x=order" role="button">
+                        <a class="btn btn-transparent-dark" href="index_kasir.php?x=order" role="button">
                             <i class="bi bi-caret-left-fill"></i>
                         </a>
                     </h5>
@@ -474,7 +413,7 @@ table.rounded {
                                                             <span id="itemName2" hidden></span>
                                                             <span type="number" id="itemPrice2" hidden></span>
                                                             <input type="text" id="status2" hidden></input>
-                                                            
+
 
                                                         </div>
                                                     </div>
@@ -648,7 +587,7 @@ table.rounded {
                     confirmButtonText: "Yes"
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        location.href = "index_admin.php?#";
+                        location.href = "index.php?#";
                     }
                 });
 
