@@ -325,6 +325,44 @@ $(document).ready(function() {
             viewOrderItems(orderId, name, nomor);
         });
     });
+    
+    async function exportToExcel() {
+        // Menunggu hingga XLSX terload
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        // Your XLSX-related code here
+        document.getElementById('export').addEventListener('click', function () {
+            const rows = document.querySelectorAll('#dataTblBody tr');
+            const dataToExport = [];
+
+            // Tambahkan header
+            const headerRow = [];
+            document.querySelectorAll('#dataTbl thead th').forEach((headerCell) => {
+                headerRow.push(headerCell.textContent);
+            });
+            dataToExport.push(headerRow);
+
+            // Tambahkan data baris
+            rows.forEach((row) => {
+                const rowData = [];
+                const cells = row.querySelectorAll('td');
+
+                cells.forEach((cell) => {
+                    rowData.push(cell.textContent);
+                });
+
+                dataToExport.push(rowData);
+            });
+
+            const ws = XLSX.utils.aoa_to_sheet(dataToExport);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+            XLSX.writeFile(wb, 'Laporan_Order.xlsx');
+        });
+    }
+
+    // Panggil fungsi exportToExcel
+    exportToExcel();
 
 
 });
