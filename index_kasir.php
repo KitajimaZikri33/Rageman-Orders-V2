@@ -148,7 +148,7 @@ table.rounded {
 
 
                 <?php
-                if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard.php";}
+                if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard_kasir.php";}
                 elseif (isset($_GET["x"]) && $_GET["x"]=='order') {include "order_kasir.php";}
                 ?>
             </div>

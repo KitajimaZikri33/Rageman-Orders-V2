@@ -165,7 +165,7 @@ table.rounded {
 
 
                 <?php
-                if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard.php";}
+                if (isset($_GET["x"]) && $_GET["x"]=='dashboard') {include "dashboard_dapur.php";}
                 elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_coffee') {include "dapur/dapur_coffee.php";}
                 elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_drink') {include "dapur/dapur_drink.php";}
                 elseif (isset($_GET["x"]) && $_GET["x"]=='dapur_food') {include "dapur/dapur.php";}

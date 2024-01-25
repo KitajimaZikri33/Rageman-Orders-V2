@@ -1,40 +1,40 @@
-<h5 class="card-title mb-2 text-start" style="color: #0e2238;">Dashboard</h5>
+<h1 class="card-title mb-2 text-start" style="color: #0e2238;">Dashboard</h1>
 <div class="row mb-5">
     <div class="col-lg">
-        <h5>Order</h5>
+        <h2>Order</h2>
         <div class="card">
             <div class="card-header text-light" style="background-color: #0e2238;">
                 <i class="bi bi-clock-history"></i>
                 History Order Pesanan
             </div>
             <div class="card-body">
-                <h5 id="successTotalCount">0</h5>
+                <h2 id="successTotalCount">0</h2>
             </div>
         </div>
     </div>
 
     <div class="col-lg">
-        <h5>Pesanan</h5>
+        <h2>Pesanan</h2>
         <div class="card">
             <div class="card-header text-light" style="background-color: #0e2238;">
                 <i class="bi bi-clock-history"></i>
                 History Pesanan
             </div>
             <div class="card-body">
-                <h5 id="totalOrderItemCount">0</h5>
+                <h2 id="totalOrderItemCount">0</h2>
             </div>
         </div>
     </div>
 
     <div class="col-lg">
-        <h5>Menu</h5>
+        <h2>Menu</h2>
         <div class="card">
         <div class="card-header text-light" style="background-color: #0e2238;">
                 <i class="bi bi-list"></i>
                 Jumlah Menu Coffee
             </div>
             <div class="card-body">
-                <h5 id="totalCoffeeCount">0</h5>
+                <h2 id="totalCoffeeCount">0</h2>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
                 Jumlah Order Success
             </div>
             <div class="card-body">
-                <h5 id="successOrderCount">0</h5>
+                <h2 id="successOrderCount">0</h2>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                 Jumlah Order Siap Saji
             </div>
             <div class="card-body">
-                <h5 id="siapDisajikanItemCount">0</h5>
+                <h2 id="siapDisajikanItemCount">0</h2>
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
                 Jumlah Menu Minuman
             </div>
             <div class="card-body">
-                <h5 id="totalDrinkCount">0</h5>
+                <h2 id="totalDrinkCount">0</h2>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
                 Jumlah Order Ongoing
             </div>
             <div class="card-body">
-                <h5 id="successOngoingCount">0</h5>
+                <h2 id="successOngoingCount">0</h2>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
                 Jumlah Pesanan Masuk Dapur
             </div>
             <div class="card-body">
-                <h5 id="masukDapurItemCount">0</h5>
+                <h2 id="masukDapurItemCount">0</h2>
             </div>
         </div>
     </div>
@@ -113,7 +113,7 @@
                 Jumlah Menu Makanan
             </div>
             <div class="card-body">
-                <h5 id="totalFoodCount">0</h5>
+                <h2 id="totalFoodCount">0</h2>
             </div>
         </div>
     </div>
