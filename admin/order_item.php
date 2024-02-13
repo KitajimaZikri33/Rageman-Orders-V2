@@ -136,7 +136,7 @@ table.rounded {
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
+                        <i class="bi bi-menu-button-wide"></i>
                         <span>Master Menu</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -160,7 +160,7 @@ table.rounded {
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <i class="lni lni-layout"></i>
+                        <i class="bi bi-fire"></i>
                         <span>Dapur</span>
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
@@ -184,7 +184,7 @@ table.rounded {
                 <li class="sidebar-item">
                     <a href="../index_admin.php?x=laporan"
                         class="sidebar-link <?php echo (isset($_GET['x']) && $_GET['x']== 'laporan') ? 'active link-info' : 'link-light' ; ?>">
-                        <i class="lni lni-popup"></i>
+                        <i class="bi bi-newspaper"></i>
                         <span>Laporan</span>
                     </a>
                 </li>
