@@ -267,7 +267,7 @@ table.rounded {
                                                     <th scope="col">Harga</th>
                                                     <th scope="col">Total</th>
                                                     <th scope="col">Status</th>
-                                                    <th scope="col" class="col-md-2">Action</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody id="ordersTableBody">
@@ -281,7 +281,7 @@ table.rounded {
                                                 <th scope="col"></th>
                                                 <th id="totalHargaFooter" scope="col"></th>
                                                 <th></th>
-                                                <th></th>
+                                                
                                             </tfooter>
                                         </table>
 
