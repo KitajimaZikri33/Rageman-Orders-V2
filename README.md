@@ -8,6 +8,7 @@ dibuat saat magang / kuliah.
 - JavaScript
 - MySQL
 - HTML/CSS
+- Bootstrap
 
 ## Cara Jalankan
 1. Clone repo
